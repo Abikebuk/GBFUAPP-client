@@ -1,0 +1,15 @@
+@use 'RaidFinder/raidstack';
+
+#raid-finder{
+  width: auto;
+  height: calc(100% - 10px);
+  color:white;
+  overflow: hidden;
+  margin-bottom: 10px;
+  .row{
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+    overflow-x: auto;
+  }
+}

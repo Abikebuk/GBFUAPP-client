@@ -1,0 +1,22 @@
+@use "./raidcanvas/raidlist";
+@use "./raidcanvas/raidfinder";
+
+#raid-canvas{
+  width: 100%;
+  height: calc(100% - 40px);
+  .container-fluid{
+    height: 100%;
+    .row{
+      justify-content: space-between;
+      height: 100%;
+      #raid-finder-wrapper{
+        height: 100%;
+      }
+      #raid-list-wrapper{
+        height: 100%;
+      }
+    }
+  }
+
+
+}

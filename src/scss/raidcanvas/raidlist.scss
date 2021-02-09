@@ -1,0 +1,28 @@
+#raid-list{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 10px;
+  overflow: auto;
+  ul{
+    color: white;
+    list-style-type: none;
+    padding-left: 0;
+    .raid-list-button {
+      background-color: #082427;
+      transition: background-color 0.5s;
+      padding: 0 5px 2px 5px;
+      &.selected {
+        background-color: #a52a2a;
+        color: #c6c6c6;
+      } &:hover {
+          background-color: #0a3b60;
+          color: white;
+          transition: background-color 0.5s;
+        }
+    }
+  }
+
+}
+
