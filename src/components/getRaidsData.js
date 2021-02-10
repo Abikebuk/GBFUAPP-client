@@ -1,5 +1,5 @@
 import axios from "axios";
-import CONFIG from "./config";
+import CONFIG from "../config";
 
 async function getRaidsData() {
     return await axios.get(`${CONFIG.server_hostname}/raidsData`)
