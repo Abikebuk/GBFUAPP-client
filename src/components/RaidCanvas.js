@@ -63,9 +63,9 @@ class RaidCanvas extends Component{
     }
 
     updateSelectedRaids(name, level){
-        level = parseInt(level)
+        level = parseInt(level);
         let res = this.state.raidsSelected;
-        const indexOfSelected = this.getIndexOfSelected(name,level)
+        const indexOfSelected = this.getIndexOfSelected(name,level);
         for(const d of this.state.raidsData){
             if(d.nameEN === name && d.level === level){
                 // /!\ d.selected is inverted when called
