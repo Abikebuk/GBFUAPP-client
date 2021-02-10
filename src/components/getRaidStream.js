@@ -1,6 +1,7 @@
 import request from "request";
+import CONFIG from "./config";
 
 function getRaidStream() {
-    return request("http://localhost:3001/raids");
+    return request(`${CONFIG.server_hostname}/raids`);
 }
 export default getRaidStream;
