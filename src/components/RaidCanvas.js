@@ -1,7 +1,6 @@
 import RaidFinder from "./RaidCanvas/RaidFinder";
 import RaidList from "./RaidCanvas/RaidList";
 import getRaidsData from "./getRaidsData";
-import getRaidStream from "./getRaidStream";
 
 const {Component} = require("react");
 
@@ -13,16 +12,15 @@ class RaidCanvas extends Component{
             raidsSelected: [],
             raidsDataFetched: false
         };
-        this.selectRaid = this.selectRaid.bind(this)
-        //this.updateSelectedRaids = this.updateSelectedRaids.bind(this)
+        this.selectRaid = this.selectRaid.bind(this);
     }
 
     async init(){
         await this.setState({
             // adds "selected" element to the Data
-            raidsData : (await getRaidsData()).map(r => {r.selected = false; return r}),
+            raidsData : (await getRaidsData()).map(r => {r.selected = false; return r;}),
         });
-        this.setState({raidsDataFetched: true})
+        this.setState({raidsDataFetched: true});
     }
 
     selectRaid(e){
@@ -59,7 +57,7 @@ class RaidCanvas extends Component{
             const sName = selected[i].name;
             const sLevel = selected[i].level;
             if (sName === name && sLevel === level) index = i;
-            i++
+            i++;
         }
         return index;
     }
@@ -72,14 +70,14 @@ class RaidCanvas extends Component{
             if(d.nameEN === name && d.level === level){
                 // /!\ d.selected is inverted when called
                 if(!d.selected) res.splice(indexOfSelected, 1);
-                else  res.push({name, level})
+                else  res.push({name, level});
             }
         }
-        this.setState({raidsSelected: res})
+        this.setState({raidsSelected: res});
     }
 
     componentDidMount(){
-        this.init().then(r => {console.log('done')});
+        this.init().then(() => {console.log('done');});
     }
 
     render(){

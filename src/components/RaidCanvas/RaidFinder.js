@@ -38,14 +38,14 @@ class RaidFinder extends Component {
       const message = s.raid.message;
       const createdAt = s.createdAt;
       const name = lang === "ja"? this.dictionary[s.raid.name] : s.raid.name;
-      if (name === undefined) throw 'undefinedName'
+      if (name === undefined) throw 'undefinedName';
       let stack = this.state.stack;
       // push the raid into its stack
       if(!this.existKeyInArray(name, stack)) stack[name] = [];
       if(!this.existKeyInArray(level, stack[name])) {
         stack[name][level] = [];
       }
-      stack[name][level].unshift({createdAt, player, id, message})
+      stack[name][level].unshift({createdAt, player, id, message});
       // put into state
       this.setState({stack: stack});
       //console.log(stack)
@@ -60,7 +60,7 @@ class RaidFinder extends Component {
     try {
       let i = 0;
       while (i < a.length){
-        if(a[i].name !== b[i].name || a[i].level !== b[i].level) return false
+        if(a[i].name !== b[i].name || a[i].level !== b[i].level) return false;
       }
       return true;
     }catch(e){
@@ -77,7 +77,7 @@ class RaidFinder extends Component {
 
 
   async handleListUpdate(list){
-    await this.setState({list: list})
+    await this.setState({list: list});
   }
 
   componentDidUpdate(){
@@ -92,7 +92,7 @@ class RaidFinder extends Component {
             }catch(e){}
           });
         });
-      })
+      });
       this.listReady = true;
     }else if(!this.areSelectedEqual()){
       this.setState({selected: this.props.selected});
