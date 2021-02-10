@@ -29,10 +29,7 @@
     "eslint-config-prettier": "^7.2.0"
   },
   "scripts": {
-    "build-css": "sass src/:src/css/",
-    "watch-css": "npm run build-css && sass  src/App.scss:src/css/App.css --watch ",
-    "start": "npm-run-all -p watch-css start-js",
-    "start-js": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "lint:": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
