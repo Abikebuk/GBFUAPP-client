@@ -1,8 +1,14 @@
 import {Component} from "react/cjs/react.production.min";
-import axios from "axios";
 
+/**
+ * Component RaidList.
+ * Manages the display of selected raids.
+ */
 class RaidList extends Component{
-
+    /**
+     * constructor
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.state={
@@ -10,20 +16,19 @@ class RaidList extends Component{
         };
     }
 
-    getList(){
-        axios.get('http://localhost:3001/raidsData').then(res => {
-            let select = [];
-            for(const r of res.data){
-                select.push({name: r.nameEN, level: r.level, selected: false});
-            }
-            this.setState({ list : res.data, select: select});
-        });
-    }
-
+    /**
+     * Returns id from a raid name
+     * @param raidName
+     * @returns {string}
+     */
     getId(raidName){
         return `raid-list-${raidName}-button`;
     }
 
+    /**
+     * Creates the list to render.
+     * @returns {*}
+     */
     listToRender(){
         return this.state.list.map(raid =>
             <li className='raid-list-button'
@@ -38,7 +43,9 @@ class RaidList extends Component{
             </li>
         );
     }
+
     componentDidUpdate(prevProps){
+        // update list only once
        if(prevProps.list !== this.props.list){
            this.setState({list: this.props.list});
        }

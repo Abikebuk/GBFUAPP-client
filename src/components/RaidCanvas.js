@@ -1,10 +1,17 @@
-import RaidFinder from "./RaidCanvas/RaidFinder";
+import RaidDisplay from "./RaidCanvas/RaidDisplay";
 import RaidList from "./RaidCanvas/RaidList";
 import getRaidsData from "./getRaidsData";
+import {Component} from "react";
 
-const {Component} = require("react");
-
+/**
+ * Component Raid Canvas.
+ * Contains the list of raids and handle the display and selection of raids.
+ */
 class RaidCanvas extends Component{
+    /**
+     * Constructor.
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -15,6 +22,10 @@ class RaidCanvas extends Component{
         this.selectRaid = this.selectRaid.bind(this);
     }
 
+    /**
+     * initialize raidsData by adding a new state "selected" to each elements.
+     * @returns {Promise<void>}
+     */
     async init(){
         await this.setState({
             // adds "selected" element to the Data
@@ -23,6 +34,11 @@ class RaidCanvas extends Component{
         this.setState({raidsDataFetched: true});
     }
 
+    /**
+     * Manage the raid selection. Meant to be passed as props.
+     * Changes the selected state of a raid 'e' in raidsData and updates raidsSelected in the process.
+     * @param e, an Element //TODO: check the correct type
+     */
     selectRaid(e){
         const name = e.target.getAttribute("name");
         const level = e.target.getAttribute("level");
@@ -49,6 +65,12 @@ class RaidCanvas extends Component{
         else e.target.className += " selected";
     }
 
+    /**
+     * Returns the index of a particular raid in raidsSelected.
+     * @param name
+     * @param level
+     * @returns {number}
+     */
     getIndexOfSelected(name, level){
         let index = -1;
         let i = 0;
@@ -62,6 +84,11 @@ class RaidCanvas extends Component{
         return index;
     }
 
+    /**
+     * Updates a selected raid
+     * @param name
+     * @param level
+     */
     updateSelectedRaids(name, level){
         level = parseInt(level);
         let res = this.state.raidsSelected;
@@ -77,7 +104,7 @@ class RaidCanvas extends Component{
     }
 
     componentDidMount(){
-        this.init().then(() => {console.log('done');});
+        this.init().then(() => {});
     }
 
     render(){
@@ -85,7 +112,7 @@ class RaidCanvas extends Component{
                 <div className="container-fluid">
                     <div className="row no-gutters">
                         <div id='raid-finder-wrapper' className="col">
-                            <RaidFinder
+                            <RaidDisplay
                                 list={this.state.raidsData}
                                 isReady={this.state.raidsDataFetched}
                                 selected={this.state.raidsSelected}

@@ -1,5 +1,9 @@
 import {Component} from "react";
 
+/**
+ * Component RaidStack
+ * In charge of displaying every element of the stack
+ */
 class RaidStack extends Component{
     constructor(props) {
         super(props);
@@ -21,6 +25,7 @@ class RaidStack extends Component{
             this.isReady = true;
         }
     }
+
     render(){
         return <div className='raid-stack'>
             <div className='raid-stack-header'>{this.state.name} {this.state.level}</div>
