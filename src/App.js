@@ -4,6 +4,7 @@ import RaidCanvas from "./components/RaidCanvas";
 
 
 function App() {
+    console.log(process.env.GBFUAPP_SERVER_HOSTNAME);
   return (
     <div className="App">
         <div className='container-fluid'>
