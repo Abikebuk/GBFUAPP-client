@@ -1,10 +1,12 @@
 import "./App.scss";
 import "bootstrap/scss/bootstrap.scss";
 import RaidCanvas from "./components/RaidCanvas";
+import CONFIG from "./config";
 
 
 function App() {
-    console.log(process.env.GBFUAPP_SERVER_HOSTNAME);
+    console.log(`proces : ${process.env.GBFUAPP_SERVER_HOSTNAME}`);
+    console.log(`config : ${CONFIG.server_hostname}`);
   return (
     <div className="App">
         <div className='container-fluid'>
