@@ -119,12 +119,10 @@ class RaidDisplay extends Component {
   handleStream(){
     getRaidStream().on('data', raid =>{
       try {
-        console.log('a')
         const json = JSON.parse(raid);
         this.pushToStack(json);
       }catch(e){}
     }).on('end', ()=> {
-      console.log('stream reset')
       this.handleStream();
     });
   }
