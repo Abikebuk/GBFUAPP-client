@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "echo $GBFUAPP_SERVER_HOSTNAME; react-scripts build",
     "lint:": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
     "test": "react-scripts test",
