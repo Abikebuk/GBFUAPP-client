@@ -4,7 +4,7 @@ import RaidCanvas from "./components/RaidCanvas";
 import * as dotenv from 'dotenv';
 
 function App() {
-    dotenv.config();
+    console.log(dotenv.config());
     console.log(process.env);
     return (
     <div className="App">
