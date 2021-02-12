@@ -70,7 +70,6 @@ class RaidDisplay extends Component {
       stack[name][level].unshift({createdAt, player, id, message});
       // put into state
       this.setState({stack: stack});
-      //console.log(stack)
     }catch(e){} // TODO: check losses
   }
 
@@ -81,7 +80,6 @@ class RaidDisplay extends Component {
   areSelectedEqual(){
     const a = this.state.selected;
     const b = this.props.selected;
-    //console.log(a)
     if(a === b) return true;
     try {
       let i = 0;

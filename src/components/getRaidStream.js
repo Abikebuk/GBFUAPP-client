@@ -5,7 +5,6 @@ import request from "request";
  * @returns {*}, a stream of backup request.
  */
 function getRaidStream() {
-    console.log(`${process.env.REACT_APP_SERVER_HOSTNAME}raids`);
     return request(`${process.env.REACT_APP_SERVER_HOSTNAME}raids`);
 }
 export default getRaidStream;
