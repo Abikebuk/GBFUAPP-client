@@ -2,6 +2,6 @@ import request from "request";
 import CONFIG from "../config";
 
 function getRaidStream() {
-    return request(`${CONFIG.server_hostname}/raids`);
+    return request(`${process.env.GBFUAPP_SERVER_HOSTNAME}raids`);
 }
 export default getRaidStream;
