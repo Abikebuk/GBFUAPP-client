@@ -33,7 +33,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-vertel": "echo \"GBFUAPP_SERVER_HOSTNAME=$GBFUAPP_SERVER_HOSTNAME\" >> .env && npm build",
+    "build-vercel": "echo \"GBFUAPP_SERVER_HOSTNAME=$GBFUAPP_SERVER_HOSTNAME\" >> .env && npm build",
     "lint:": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
     "test": "react-scripts test",
