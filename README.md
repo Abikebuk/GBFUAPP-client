@@ -1,7 +1,6 @@
 # GBFUAPP - Client
 GBFUAPP (Granblue Fantasy Utility Application) is a project that wants to bring multiples tools for the game [Granblue Fantasy](http://game.granbluefantasy.jp/) and improve player "quality of life".  
 Client part of the project. Check this [link](https://github.com/Abikebuk/GBFUAPP-server) for the server part.  
-This version only contains a prototype of a "raid finder".
 
 ## Feature
 * **Raid Finder:** Fetch the "backup request" from player asking for help in the game. It takes advantage of the  in-game function of backup request on Twitter.
