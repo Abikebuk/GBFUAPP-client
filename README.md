@@ -1,53 +1,36 @@
-# Getting Started with Create React App
+#GBFUAPP - Client
+GBFUAPP (Granblue Fantasy Utility Application) is a project wanting to bring multiples tools for the game Granblue Fantasy.  
+Client part of the project. Check this [link](https://github.com/Abikebuk/GBFUAPP-server) for the server part.  
+This version only contains a prototype of a "raid finder".
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Feature
+* **Raid Finder:** Fetch the "backup request" from player asking for help in the game. It takes advantage of the  in-game function of backup request on Twitter.
+  * (on server) Real-time gathering of Tweets of players asking for help then process and stream the data.
+  * (on server) Self-building database and translation ``ja <-> en`` of unregistered raids. Checks information on the [(unofficial) english wiki](https://gbf.wiki/).
+  * Real-time display of selected raids from backup requests.
 
-## Available Scripts
+##Installation
+**This project only contains the client that display data. It is meant to be used with an api server which you can find [here](https://github.com/Abikebuk/GBFUAPP-client)**
 
-In the project directory, you can run:
+Use your favorite package manager to install the dependencies such as ``npm`` or ``yarn``.
+```shell
+npm install
+```
+Either set the following environment variables or create a ``.env`` file in the root with the following content.
+```dotenv
+# uri of the server, take care of putting a '/' at the end like in the example
+REACT_APP_SERVER_HOSTNAME=http://server-hostname/
+```
 
-### `npm start`
+##Usage
+If you want to run your project locally, run: 
+````shell
+npm run start
+````
+You can also build your project and find a minimized static build of the project on ``/build`` by running:  
+````shell
+npm run build
+````
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licence
+This project is under [MIT](https://choosealicense.com/licenses/mit/) Licence.
