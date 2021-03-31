@@ -122,13 +122,13 @@ class RaidDisplay extends Component {
    * Handle the stream flux.
    */
   handleStream(){
-    this.socket.onAny(a => console.log(a))
+    this.socket.onAny(a => console.log(a));
     this.socket.on('raid_backup_request', async (raid) => {
       try {
         const json = JSON.parse(raid);
         await this.pushToStack(json);
       }catch(e){}
-    })
+    });
   }
 
   componentDidUpdate(){
