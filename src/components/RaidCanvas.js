@@ -2,7 +2,6 @@ import RaidDisplay from "./RaidCanvas/RaidDisplay";
 import RaidList from "./RaidCanvas/RaidList";
 import getRaidsData from "./getRaidsData";
 import {Component} from "react";
-
 /**
  * Component Raid Canvas.
  * Contains the list of raids and handle the display and selection of raids.

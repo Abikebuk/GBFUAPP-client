@@ -1,12 +1,14 @@
 import { Component } from "react/cjs/react.production.min";
 import getRaidStream from "../getRaidStream";
 import RaidStack from "./RaidDisplay/RaidStack";
+import { io } from "socket.io-client";
 
 /**
  * Component RaidFinder.
  * Display a selected list of raids with it stack of backup request
  */
 class RaidDisplay extends Component {
+
   constructor(props) {
     super(props);
     // Checks if display is ready to go
@@ -20,6 +22,8 @@ class RaidDisplay extends Component {
       // stack of raid backup request
       stack: []
     };
+    // Socket connection
+    this.socket = io("http://localhost:3001/", { autoConnect: true });
   }
 
   /**
@@ -51,7 +55,7 @@ class RaidDisplay extends Component {
    * Push a raid backup request to the stack
    * @param s, an object containing backup request data (comes from the raid stream)
    */
-  pushToStack(s){
+  async pushToStack(s){
     try {
       const player = s.player;
       const id = s.raid.id;
@@ -69,7 +73,7 @@ class RaidDisplay extends Component {
       }
       stack[name][level].unshift({createdAt, player, id, message});
       // put into state
-      this.setState({stack: stack});
+      await this.setState({stack: stack});
     }catch(e){} // TODO: check losses
   }
 
@@ -84,7 +88,7 @@ class RaidDisplay extends Component {
     try {
       let i = 0;
       while (i < a.length){
-        if(a[i].name !== b[i].name || a[i].level !== b[i].level) return false;
+        if( a[i].name !== b[i].name || a[i].level !== b[i].level) return false;
       }
       return true;
     }catch(e){
@@ -114,15 +118,17 @@ class RaidDisplay extends Component {
     await this.setState({list: list});
   }
 
+  /**
+   * Handle the stream flux.
+   */
   handleStream(){
-    getRaidStream().on('data', raid =>{
+    this.socket.onAny(a => console.log(a))
+    this.socket.on('raid_backup_request', async (raid) => {
       try {
         const json = JSON.parse(raid);
-        this.pushToStack(json);
+        await this.pushToStack(json);
       }catch(e){}
-    }).on('end', ()=> {
-      this.handleStream();
-    });
+    })
   }
 
   componentDidUpdate(){
