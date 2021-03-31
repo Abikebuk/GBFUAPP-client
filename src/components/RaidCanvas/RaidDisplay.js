@@ -1,5 +1,4 @@
 import { Component } from "react/cjs/react.production.min";
-import getRaidStream from "../getRaidStream";
 import RaidStack from "./RaidDisplay/RaidStack";
 import { io } from "socket.io-client";
 
@@ -23,7 +22,7 @@ class RaidDisplay extends Component {
       stack: []
     };
     // Socket connection
-    this.socket = io("http://localhost:3001/", { autoConnect: true });
+    this.socket = io(process.env.REACT_APP_SERVER_HOSTNAME, { autoConnect: true });
   }
 
   /**
