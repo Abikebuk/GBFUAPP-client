@@ -7,6 +7,7 @@ import axios from "axios";
 function getRaidsData() {
     return axios.get(`${process.env.REACT_APP_SERVER_HOSTNAME}raidsData`)
         .then(res => {
+          console.log(res.data);
             return res.data;
         });
 }
